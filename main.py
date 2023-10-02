@@ -45,6 +45,29 @@ class Job:
         self.gladness_less = Job.stats[self.job]['gladness_less']
 
 
+class Dog:
+    stats = {
+        'Sharik': {'energy': 100, 'happiness': 50, 'satiety': 50, },
+        'Persik': {'energy': 80, 'happiness': 60, 'satiety': 50, },
+        'Volt': {'energy': 120, 'happiness': 40, 'satiety': 50, },
+        'Pirat': {'energy': 60, 'happiness': 60, 'satiety': 50, },
+    }
+
+    def __init__(self):
+        self.dog_name = random.choice(list(Dog.stats))
+        self.dog_energy = Dog.stats[self.dog_name]['energy']
+        self.dog_happiness = Dog.stats[self.dog_name]['happiness']
+        self.dog_satiety = Dog.stats[self.dog_name]['satiety']
+
+    def is_alive(self):
+        if self.dog_energy < 0 or self.dog_satiety < 0:
+            print(f'Your dog is dead...\n'
+                  f'You feel depressed...')
+            return False
+        else:
+            return True
+
+
 class Human:
     def __init__(
             self,
@@ -53,6 +76,7 @@ class Human:
             home=None,
             car=None
     ):
+        self.dog = Dog()
         self.name = name
         self.money = 100
         self.gladness = 50
@@ -72,6 +96,31 @@ class Human:
             self.to_repair()
             return
         self.job = Job()
+
+    def get_dog(self):
+        self.dog = Dog()
+
+    def time_to_play(self):
+        if self.dog.dog_satiety > 50:
+            self.dog.dog_energy -= 10
+            self.dog.dog_satiety -= 10
+            self.dog.dog_happiness += 20
+
+    def time_to_eat(self):
+        if self.dog.dog_satiety < 10:
+            if self.money > 20:
+                self.dog.dog_satiety += 20
+                self.dog.dog_energy += 10
+                self.dog.dog_happiness += 15
+                self.money -= 10
+            elif self.money < 20:
+                print('Not enough money to feed your dog.')
+
+    def time_to_sleep(self):
+        if self.dog.dog_energy < 10:
+            self.dog.dog_energy += 10
+            self.dog.dog_happiness += 15
+            self.dog.dog_satiety -= 15
 
     def eat(self):
         if self.home.food <= 0:
@@ -119,10 +168,14 @@ class Human:
             self.money -= 50
             self.home.food += 50
         elif manage == 'sweets':
-            print('Yummmy! Yummy!')
+            print('Yummy! Yummy!')
             self.gladness += 10
             self.satiety += 2
             self.money -= 15
+        elif manage == 'dog_food':
+            print('Bought dog food')
+            self.money -= 25
+            self.home.food += 1
 
     def chill(self):
         self.gladness += 10
