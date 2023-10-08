@@ -1,0 +1,9 @@
+DEBUG:root:Debug
+INFO:root:Info
+WARNING:root:Warning
+ERROR:root:Error
+CRITICAL:root:Critical
+CRITICAL:root:division by zero
+[WEB.API.main]: 2023-10-07 14:35:53,319 : CRITICAL - division by zero
+[WEB.API.main]: 2023-10-07 14:45:38,244 : CRITICAL - division by zero
+[WEB.API.main]: 2023-10-07 15:07:30,455 : ERROR - 13 + 13 != 30 wrong answer
