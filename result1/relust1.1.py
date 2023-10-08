@@ -8,5 +8,5 @@ try:
         for key in data:
             res = divider(key, data[kem])
             result.append(res)
-except Exception:
+except IndentationError:
     print(result)
