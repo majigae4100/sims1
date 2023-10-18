@@ -7,3 +7,4 @@ CRITICAL:root:division by zero
 [WEB.API.main]: 2023-10-07 14:35:53,319 : CRITICAL - division by zero
 [WEB.API.main]: 2023-10-07 14:45:38,244 : CRITICAL - division by zero
 [WEB.API.main]: 2023-10-07 15:07:30,455 : ERROR - 13 + 13 != 30 wrong answer
+[WEB.API.main]: 2023-10-18 16:59:57,270 : ERROR - 2-1 != 0 wrong answer

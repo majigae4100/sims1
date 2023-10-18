@@ -20,10 +20,10 @@ try:
         print(i)
 except StopIteration:
     pass'''  # Counter
-'''from generator import Generator
+from generator import Generator
 generator = Generator(0)
 j = 0
 for i in generator.raise_to_the_degrees_F(3, 10):
     print(f"{j} - {i}")
-    j += 1'''  # Generator
+    j += 1
 

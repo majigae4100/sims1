@@ -19,12 +19,12 @@ except ZeroDivisionError as zde:
     print("True")
 else:
     print("False")'''  # ex1
-'''from testexample import Tester
+from testexample import Tester
 a = int(input("Enter digit: "))
 b = int(input("Enter digit: "))
 operation = input("Enter operation: ")
 result = int(input("Enter result: "))
 tester = Tester(a, b, operation, result)
-tester.CheckCalculate()'''  # tester 1
+tester.CheckCalculate()
 
 
